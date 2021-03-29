@@ -21,15 +21,7 @@ public class CarController {
     public String printCars(@RequestParam(name = "count", required = false, defaultValue = "5") int count,
                             ModelMap model) {
 
-        List<Car> cars = new ArrayList<>();
-
-        cars.add(new Car(1, "Lightning", "McQueen"));
-        cars.add(new Car(2, "Tow", "Mater"));
-        cars.add(new Car(3, "Hornet", "Hudson"));
-        cars.add(new Car(4, "Sally", "Carrera"));
-        cars.add(new Car(5, "Francesco", "Bernoulli"));
-
-        model.addAttribute("cars", carService.listCars(cars, count));
+        model.addAttribute("cars", carService.listCars(count));
 
         return "cars";
     }
